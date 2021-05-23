@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Моя первая страница</title>
+  <style>
+ #inputField {
+  width: 300px; /* Ширина поля в пикселах */
+ }
+</style>
+</head>
+
+<body>
+
+
+
+
+  <div id="form">
+
+    <H3 id="formHeader">Форма</H3>
+
+    <form onsubmit="return false">
+      <input type="text" id="inputField"></input>
+      <input type="submit" name="submitButton" value="Submit" onclick="addMe (document.getElementById('inputField').value)">
+    </form>
+
+  </div>
+
+  <div id="main">
+
+    <H3 id="contentHeader">Содержание</H3>
+
+    <ol id="list">
+
+
+    </ol>
+
+    <!-- <p id="p1" onclick="this.textContent = reverseString (this.textContent)">      абзац 1    </p>
+    <p id="p2"  onclick="this.textContent = reverseString (this.textContent)">      абзац 2    </p>
+    <p id="p3" onclick="this.textContent = reverseString (this.textContent)">      абзац 3    </p> -->
+
+  </div>
+
+  <script>
+    function addMe (phrase) {
+      // let newP = document.getElementById("list").append;
+      //     newP.textContent =
+      //     newP.onclick = function() {
+      //                     this.textContent = reverseString (this.textContent);
+
+      let removeLiButton = document.createElement("button");
+          removeLiButton.textContent = "X";
+          removeLiButton.onclick = function () {
+          newLi.remove();
+          }
+
+      let liContent = document.createElement("span");
+          liContent.textContent = reverseString (phrase);
+          liContent.onclick = function (){
+                this.textContent = reverseString (this.textContent)
+          };
+
+
+      let newLi = document.createElement("li");
+          newLi.append(liContent);
+          newLi.append(removeLiButton);
+
+
+          list.append(newLi);
+
+          }
+
+
+      //document.getElementById("main").lastChild.textContent = phrase.split(' ').map((_, i, a) => a[a.length - i - 1]).join(' ')  //вариант с циклом на основе метода map
+
+
+
+function reverseString (s){
+return s.split(' ').reverse().join(' ');
+
+}
+
+  </script>
+
+</body>
+</html>
