@@ -61,9 +61,13 @@
                 this.textContent = reverseString (this.textContent)
           };
 
+   let liContentExtra = document.createElement("span");
+
+          liContentExtra.textContent =  "     ";
 
       let newLi = document.createElement("li");
           newLi.append(liContent);
+          newLi.append(liContentExtra);
           newLi.append(removeLiButton);
 
 
