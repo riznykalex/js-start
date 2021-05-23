@@ -33,22 +33,13 @@
 
     <ol id="list">
 
-
     </ol>
-
-    <!-- <p id="p1" onclick="this.textContent = reverseString (this.textContent)">      абзац 1    </p>
-    <p id="p2"  onclick="this.textContent = reverseString (this.textContent)">      абзац 2    </p>
-    <p id="p3" onclick="this.textContent = reverseString (this.textContent)">      абзац 3    </p> -->
 
   </div>
 
   <script>
     function addMe (phrase) {
-      // let newP = document.getElementById("list").append;
-      //     newP.textContent =
-      //     newP.onclick = function() {
-      //                     this.textContent = reverseString (this.textContent);
-
+      
       let removeLiButton = document.createElement("button");
           removeLiButton.textContent = "X";
           removeLiButton.onclick = function () {
@@ -74,11 +65,6 @@
           list.append(newLi);
 
           }
-
-
-      //document.getElementById("main").lastChild.textContent = phrase.split(' ').map((_, i, a) => a[a.length - i - 1]).join(' ')  //вариант с циклом на основе метода map
-
-
 
 function reverseString (s){
 return s.split(' ').reverse().join(' ');
