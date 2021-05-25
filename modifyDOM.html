@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -31,6 +32,7 @@
 
     <H3 id="contentHeader">Содержание</H3>
 
+
     <ol id="list">
 
     </ol>
@@ -39,37 +41,33 @@
 
   <script>
     function addMe (phrase) {
-      
-      let removeLiButton = document.createElement("button");
-          removeLiButton.textContent = "X";
-          removeLiButton.onclick = function () {
-          newLi.remove();
-          }
 
-      let liContent = document.createElement("span");
-          liContent.textContent = reverseString (phrase);
-          liContent.onclick = function (){
-                this.textContent = reverseString (this.textContent)
-          };
+        const removeLiButton = document.createElement("button");
+              removeLiButton.textContent = "X";
+              removeLiButton.onclick = function () {
+                      newLi.remove();
+                      }
 
-   let liContentExtra = document.createElement("span");
+        const liContent = document.createElement("span");
+              liContent.textContent = reverseString (phrase);
+              liContent.onclick = function (){
+                    this.textContent = reverseString (this.textContent)
+                    };
 
-          liContentExtra.textContent =  ". . . .";
+        const liContentExtra = document.createElement("span");
 
-      let newLi = document.createElement("li");
-          newLi.append(liContent);
-          newLi.append(liContentExtra);
-          newLi.append(removeLiButton);
+              liContentExtra.innerHTML =  "&nbsp;&nbsp;&nbsp;&nbsp;";
 
-
-          list.append(newLi);
-
-          }
+        const newLi = document.createElement("li");
+              newLi.append(liContent);
+              newLi.append(liContentExtra);
+              newLi.append(removeLiButton);
+              list.append(newLi);
+              }
 
 function reverseString (s){
-return s.split(' ').reverse().join(' ');
-
-}
+        return s.split(' ').reverse().join(' ');
+        }
 
   </script>
 
