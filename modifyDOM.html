@@ -8,6 +8,12 @@
  #inputField {
   width: 300px; /* Ширина поля в пикселах */
  }
+ .checkGreen{
+   color: green;
+ }
+ .checkRed{
+   color: red;
+ }
 </style>
 </head>
 
@@ -24,10 +30,12 @@
 
     <form 
       onsubmit="return false">
-      <input type="text" id="inputField" onchange="alert('change')"></input>
-      <span id="message"> 
+      <input type="text" id="inputField" onchange="checkInput()"></input>
+      
+      <span id="message" class="checkGreen"> 
         Введите имя и фамилию
       </span>
+      
       <input type="submit" name="submitButton" value="Submit" onclick="addMe (document.getElementById('inputField').value)">
     </form>
 
@@ -45,6 +53,12 @@
 
   <script>
     function addMe (phrase) {
+      document.getElementById("message").className="checkGreen";
+      
+      let check = wordsCounter(
+        phrase);
+      
+     if (check > 0) {
       
       let removeLiButton = document.createElement("button");
           removeLiButton.textContent = "X";
@@ -69,7 +83,10 @@
 
 
           list.append(newLi);
-
+            }else{
+              document.getElementById("message").className="checkRed"
+              //alert ("Как минимум два слова")
+            }
           }
 
 function reverseString (s){
@@ -80,14 +97,14 @@ return s.split(' ').reverse().join(' ');
 
 function wordsCounter(str){
   
-  var wordCount = str.match(/(\w+)/g).length;
-    alert(wordCount); //6
+  var wordCount = str.match(/(\s+)/g).length;
+    return (wordCount); //6
 }
 
-function checkInput (){
-  
-  document.getElementById('inputField').value
-  
+function checkInput(){
+  wordsCounter(
+    document.getElementById('inputField').value
+  )
 }
 
   </script>
