@@ -24,7 +24,7 @@
 
     <form 
       onsubmit="return false">
-      <input type="text" id="inputField"></input>
+      <input type="text" id="inputField" onchange="alert('change')"></input>
       <span id="message"> 
         Введите имя и фамилию
       </span>
@@ -75,6 +75,19 @@
 function reverseString (s){
 return s.split(' ').reverse().join(' ');
 
+}
+
+
+function wordsCounter(str){
+  
+  var wordCount = str.match(/(\w+)/g).length;
+    alert(wordCount); //6
+}
+
+function checkInput (){
+  
+  document.getElementById('inputField').value
+  
 }
 
   </script>
