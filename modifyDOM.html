@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -19,10 +18,16 @@
 
   <div id="form">
 
-    <H3 id="formHeader">Форма</H3>
+    <H3 id="formHeader">
+      Форма
+    </H3>
 
-    <form onsubmit="return false">
+    <form 
+      onsubmit="return false">
       <input type="text" id="inputField"></input>
+      <span id="message"> 
+        Введите имя и фамилию
+      </span>
       <input type="submit" name="submitButton" value="Submit" onclick="addMe (document.getElementById('inputField').value)">
     </form>
 
@@ -32,7 +37,6 @@
 
     <H3 id="contentHeader">Содержание</H3>
 
-
     <ol id="list">
 
     </ol>
@@ -41,33 +45,37 @@
 
   <script>
     function addMe (phrase) {
+      
+      let removeLiButton = document.createElement("button");
+          removeLiButton.textContent = "X";
+          removeLiButton.onclick = function () {
+          newLi.remove();
+          }
 
-        const removeLiButton = document.createElement("button");
-              removeLiButton.textContent = "X";
-              removeLiButton.onclick = function () {
-                      newLi.remove();
-                      }
+      let liContent = document.createElement("span");
+          liContent.textContent = reverseString (phrase);
+          liContent.onclick = function (){
+                this.textContent = reverseString (this.textContent)
+          };
 
-        const liContent = document.createElement("span");
-              liContent.textContent = reverseString (phrase);
-              liContent.onclick = function (){
-                    this.textContent = reverseString (this.textContent)
-                    };
+   let liContentExtra = document.createElement("span");
 
-        const liContentExtra = document.createElement("span");
+          liContentExtra.innerHtml =  "&nbsp; &nbsp; &nbsp;";
 
-              liContentExtra.innerHTML =  "&nbsp;&nbsp;&nbsp;&nbsp;";
+      let newLi = document.createElement("li");
+          newLi.append(liContent);
+          newLi.append(liContentExtra);
+          newLi.append(removeLiButton);
 
-        const newLi = document.createElement("li");
-              newLi.append(liContent);
-              newLi.append(liContentExtra);
-              newLi.append(removeLiButton);
-              list.append(newLi);
-              }
+
+          list.append(newLi);
+
+          }
 
 function reverseString (s){
-        return s.split(' ').reverse().join(' ');
-        }
+return s.split(' ').reverse().join(' ');
+
+}
 
   </script>
 
